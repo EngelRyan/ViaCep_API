@@ -5,6 +5,7 @@ public class Endereco {
     private String cep;
     private String logradouro;
     private String complemento;
+    private String unidade;
     private String bairro;
     private String localidade;
     private String uf;
@@ -30,6 +31,12 @@ public class Endereco {
     }
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+    public String getUnidade() {
+        return unidade;
+    }
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
     }
     public String getBairro() {
         return bairro;
