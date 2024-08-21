@@ -2,29 +2,45 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Busca de CEP</title>
+    <link rel="stylesheet"  href="styles.css">
+    <link rel="icon" href="/images/viaceplogo.png" type="png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100..800&display=swap" rel="stylesheet">
 </head>
+
+<header>
+    <h1>ViaCep</h1>
+</header>
+
 <body>
-    <h1>Buscar CEP</h1>
-    <form action="/buscarCep" method="post">
-        <label for="cep">CEP:</label>
-        <input type="text" id="cep" name="cep" required>
-        <button type="submit">Buscar</button>
-    </form>
-    <div th:if="${endereco != null}">
-        <h2>Dados do CEP</h2>
-        <p><strong>CEP:</strong> <span th:text="${endereco.cep}"></span></p>
-        <p><strong>Logradouro:</strong> <span th:text="${endereco.logradouro}"></span></p>
-        <p th:if="${endereco.complemento != ''}"><strong>Complemento:</strong> <span th:text="${endereco.complemento}"></span></p>
-        <p th:if="${endereco.unidade != ''}"><strong>Unidade:</strong> <span th:text="${endereco.unidade}"></span></p>
+    <div id = "form_cep">
+        <div id = "title">
+            <p>
+                Buscar CEP
+            </p>
+        </div>
+        <form action="/buscarCep" method="post">
+            <label for="cep">CEP:</label>
+            <input type="text" placeholder="00000-000" id="cep" name="cep" required>
+            <button type="submit">Buscar</button>
+        </form>
+        <div id = "data" th:if="${endereco != null}">
+            <h2>Dados do CEP</h2>
+            <p><strong>CEP:</strong> <span th:text="${endereco.cep}"></span></p>
+            <p><strong>Logradouro:</strong> <span th:text="${endereco.logradouro}"></span></p>
+            <p th:if="${endereco.complemento != ''}"><strong>Complemento:</strong> <span th:text="${endereco.complemento}"></span></p>
+            <p th:if="${endereco.unidade != ''}"><strong>Unidade:</strong> <span th:text="${endereco.unidade}"></span></p>
 
-        <p><strong>Bairro:</strong> <span th:text="${endereco.bairro}"></span></p>
-        <p><strong>Localidade:</strong> <span th:text="${endereco.localidade}"></span></p>
-        <p><strong>UF:</strong> <span th:text="${endereco.uf}"></span></p>
-        <p><strong>IBGE:</strong> <span th:text="${endereco.ibge}"></span></p>
+            <p><strong>Bairro:</strong> <span th:text="${endereco.bairro}"></span></p>
+            <p><strong>Localidade:</strong> <span th:text="${endereco.localidade}"></span></p>
+            <p><strong>UF:</strong> <span th:text="${endereco.uf}"></span></p>
+            <p><strong>IBGE:</strong> <span th:text="${endereco.ibge}"></span></p>
 
-        <p th:if="${endereco.gia != ''}"><strong>GIA:</strong> <span th:text="${endereco.gia}"></span></p>
-        <p th:if="${endereco.ddd != ''}"><strong>DDD:</strong> <span th:text="${endereco.ddd}"></span></p>
-        <p th:if="${endereco.siafi != ''}"><strong>SIAFI:</strong> <span th:text="${endereco.siafi}"></span></p>
-    </div>
+            <p th:if="${endereco.gia != ''}"><strong>GIA:</strong> <span th:text="${endereco.gia}"></span></p>
+            <p th:if="${endereco.ddd != ''}"><strong>DDD:</strong> <span th:text="${endereco.ddd}"></span></p>
+            <p th:if="${endereco.siafi != ''}"><strong>SIAFI:</strong> <span th:text="${endereco.siafi}"></span></p>
+        </div>
+    </div>  
 </body>
 </html>
